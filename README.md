@@ -11,9 +11,22 @@ Transfer learning (TL): It is a technique in deep learning that focuses on takin
 Model Architecture:
 
 Modules required:
-> Keras: It is a Python module for deep learning that runs on the top of TensorFlow library. It was created to make implementing deep learning models as easy and fast as possible for research and development. Being the fact that Keras runs on top of Keras we have to install TensorFlow first. To install this library, type the following commands in IDE/terminal.
+Keras: It is a Python module for deep learning that runs on the top of TensorFlow library. It was created to make implementing deep learning models as easy and fast as possible for research and development. Being the fact that Keras runs on top of Keras we have to install TensorFlow first. To install this library, type the following commands in IDE/terminal.
 
 ```
 pip install tensorflow
 pip install keras
 ```
+
+SciPy: SciPy is a free and open-source Python module used for technical and scientific computing. As we require Image Transformations in this article we have to install SciPy module. To install this library, type the following command in IDE/terminal.
+
+```
+pip install scipy
+```
+
+glob: In Python, the glob module is used to retrieve files/pathnames matching a specified pattern. To find how many classes are present in our train dataset folder we use this module in this article.
+
+```
+pip install glob2
+```
+
