@@ -11,6 +11,7 @@ Transfer learning (TL): It is a technique in deep learning that focuses on takin
 Model Architecture:
 
 Modules required:
+
 Keras: It is a Python module for deep learning that runs on the top of TensorFlow library. It was created to make implementing deep learning models as easy and fast as possible for research and development. Being the fact that Keras runs on top of Keras we have to install TensorFlow first. To install this library, type the following commands in IDE/terminal.
 
 ```
