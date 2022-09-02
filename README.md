@@ -1,2 +1,3 @@
 # Pneumonia-Detection
-hfhfhf
+
+In this project, we will discuss solving a medical problem i.e. Pneumonia which is a dangerous disease that may occur in one or both lungs usually caused by viruses, fungi or bacteria. We will detect this lung disease based on the x-rays we have. Chest X-rays dataset can be downloaded from Dataset folder which contain various x-rays images differentiated by two categories “Pneumonia” and “Normal”. We will be creating a deep learning model which will actually tell us whether the person is having pneumonia disease or not having pneumonia.
