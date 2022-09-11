@@ -1,3 +1,3 @@
-#Pneumonia Detection
+##Pneumonia Detetion
 
 In Progress......👽👽👽
