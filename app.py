@@ -1,5 +1,7 @@
 #Importing the required libraries
+#from asyncore import file_dispatcher
 from flask import Flask, redirect, url_for, request, render_template
+from flask import flash
 from keras.models import load_model
 import tensorflow as tf
 from PIL import Image
@@ -7,80 +9,82 @@ import numpy as np
 from werkzeug.utils import secure_filename
 import os
 
-# Define a flask app
-app = Flask(__name__)
+pneumonia_model = load_model('F:\\Pneumonia-Detection\\Models\\VGG16_model.h5')
 
-def model_predict(img_path, model):
+UPLOAD_FOLDER = 'static/uploads'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+
+app = Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.secret_key = "secret key"
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
+
+@app.route('/')
+def home():
+    return render_template('homepage.html')
+
+@app.route('/pneumonia')
+def pneumonia():
+    return render_template('pneumonia.html')
+
+def model_predict(img_path, pneumonia_model):
     img = tf.keras.utils.load_img(img_path, target_size=(100, 100))
     # Preprocessing the image
     x = tf.keras.utils.img_to_array(img)/255.0
     x = x.reshape(1,100,100,3)
-    preds = model.predict(x)
+    preds = pneumonia_model.predict(x)
     return preds
 
-
-@app.route('/', methods=['GET'])
-def index():
-    # Main page
-    return render_template('index.html')
-
-cache = {}
-@app.route('/modelSelection',methods=['POST'])
-def select():
-    f=request.form['models'];
-    print(f)
-    if f=='C':
-        MODEL_PATH = 'F:\\Pneumonia-Detection\\Models\\CNN_model.h5'
-        print('Loaded CNN Model')
-    elif f=='V16':
-        MODEL_PATH = 'F:\\Pneumonia-Detection\\Models\\VGG16_model.h5'
-        print('Loaded VGG16 Model')
-    elif f=='V19':
-        MODEL_PATH = 'F:\\Pneumonia-Detection\\Models\\VGG19_model.h5'
-        print('Loaded VGG19 Model')
-    elif f=='R':
-        MODEL_PATH = 'F:\\Pneumonia-Detection\\Models\\ResNet50_model.h5'
-        print('Loaded ResNet Model')
-        
-
-    model= load_model(MODEL_PATH)
-    #model._make_predict_function()
-    cache['model'] = model
-
-    return redirect('/')
-
-@app.route('/predict', methods=['GET', 'POST'])
-def upload():
+@app.route('/result', methods=['POST'])
+def result():
     if request.method == 'POST':
-        # Get the file from post request
-        f = request.files['file']
-
-        # Save the file to ./uploads
-        basepath = os.path.dirname(__file__)
-        file_path = os.path.join(
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        email = request.form['email']
+        phone = request.form['phone']
+        gender = request.form['gender']
+        age = request.form['age']
+        file = request.files['file']
+        if request.method == 'POST':
+            f = request.files['file']
+             # Save the file to ./uploads
+            basepath = os.path.dirname(__file__)
+            file_path = os.path.join(
             basepath, 'F:\\Pneumonia-Detection\\uploads', secure_filename(f.filename))
-        f.save(file_path)
-        print(cache)
+            f.save(file_path)
         # Make prediction
-        preds = model_predict(file_path,cache['model'])
-        
-        os.remove(file_path)#removes file from the server after prediction has been returned
-        
-        cache['confidence_0'] = preds[0][0]
-        cache['confidence_1'] = preds[0][1]
-        # Process your result for human
-        pred_class = preds        
-        if pred_class[0][0]>pred_class[0][1]:
-            result="Person is safe"
+            #filename = secure_filename(file.filename)
+            #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            flash('Image successfully uploaded and displayed below')
+            preds = model_predict(file_path,pneumonia_model)
+            pred_class = preds
+            if pred_class[0][0]>pred_class[0][1]:
+                result=0
+            else:
+                result=1
+            # pb.push_sms(pb.devices[0],str(phone), 'Hello {},\nYour COVID-19 test results are ready.\nRESULT: {}'.format(firstname,['POSITIVE','NEGATIVE'][pred]))
+            return render_template('result.html', filename=file_path, fn=firstname, ln=lastname, age=age, r=result, gender=gender)
+
         else:
-            result="Person is affected with Pneumonia"
-        print(result)
-        return result
-    return None
+            flash('Allowed image types are - png, jpg, jpeg')
+            return redirect(request.url)
+
+# No caching at all for API endpoints.
+@app.after_request
+def add_header(response):
+    """
+    Add headers to both force latest IE rendering engine or Chrome Frame,
+    and also to cache the rendered page for 10 minutes.
+    """
+    response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
+    response.headers['Cache-Control'] = 'public, max-age=0'
+    return response
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
 
