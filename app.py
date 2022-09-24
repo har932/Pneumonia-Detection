@@ -1,6 +1,7 @@
 #Importing the required libraries
 #from asyncore import file_dispatcher
 from flask import Flask, redirect, url_for, request, render_template
+import urllib.request
 from flask import flash
 from keras.models import load_model
 import tensorflow as tf
@@ -9,9 +10,9 @@ import numpy as np
 from werkzeug.utils import secure_filename
 import os
 
-pneumonia_model = load_model('F:\\Pneumonia-Detection\\Models\\VGG16_model.h5')
+pneumonia_model = load_model('F:/Pneumonia-Detection/Models/VGG16_model.h5')
 
-UPLOAD_FOLDER = 'static/uploads'
+UPLOAD_FOLDER = 'F:\\Pneumonia-Detection\\static\\uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 app = Flask(__name__)
@@ -54,11 +55,13 @@ def result():
              # Save the file to ./uploads
             basepath = os.path.dirname(__file__)
             file_path = os.path.join(
-            basepath, 'F:\\Pneumonia-Detection\\uploads', secure_filename(f.filename))
+            basepath, 'F:\\Pneumonia-Detection\\static\\uploads', secure_filename(f.filename))
+            #file_path = secure_filename(f.filename)
             f.save(file_path)
         # Make prediction
-            #filename = secure_filename(file.filename)
-            #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            filename = secure_filename(file.filename)
+            # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            #f.save(filename)
             flash('Image successfully uploaded and displayed below')
             preds = model_predict(file_path,pneumonia_model)
             pred_class = preds
@@ -67,7 +70,7 @@ def result():
             else:
                 result=1
             # pb.push_sms(pb.devices[0],str(phone), 'Hello {},\nYour COVID-19 test results are ready.\nRESULT: {}'.format(firstname,['POSITIVE','NEGATIVE'][pred]))
-            return render_template('result.html', filename=file_path, fn=firstname, ln=lastname, age=age, r=result, gender=gender)
+            return render_template('result.html', filename=filename, fn=firstname, ln=lastname, age=age, r=result, gender=gender)
 
         else:
             flash('Allowed image types are - png, jpg, jpeg')
