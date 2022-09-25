@@ -4,13 +4,16 @@ from flask import Flask, redirect, url_for, request, render_template
 import urllib.request
 from flask import flash
 from keras.models import load_model
+from keras.saving.saved_model.load import load
 import tensorflow as tf
 from PIL import Image
 import numpy as np
 from werkzeug.utils import secure_filename
 import os
 
-pneumonia_model = load_model('../VGG16_model.h5')
+MODEL_PATH = 'F:/Pneumonia-Detection/VGG16_model.h5'
+
+pneumonia_model = load_model(MODEL_PATH)
 
 UPLOAD_FOLDER = './static/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
