@@ -11,7 +11,7 @@ import numpy as np
 from werkzeug.utils import secure_filename
 import os
 
-MODEL_PATH = 'F:/Pneumonia-Detection/VGG16_model.h5'
+MODEL_PATH = './VGG16_model.h5'
 
 pneumonia_model = load_model(MODEL_PATH)
 
