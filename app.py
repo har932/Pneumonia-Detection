@@ -10,7 +10,7 @@ import numpy as np
 from werkzeug.utils import secure_filename
 import os
 
-pneumonia_model = load_model('./VGG16_model.h5')
+pneumonia_model = load_model('../VGG16_model.h5')
 
 UPLOAD_FOLDER = './static/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
