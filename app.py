@@ -12,7 +12,7 @@ import os
 
 pneumonia_model = load_model('F:/Pneumonia-Detection/Models/VGG16_model.h5')
 
-UPLOAD_FOLDER = 'F:\\Pneumonia-Detection\\static\\uploads'
+UPLOAD_FOLDER = 'F:/Pneumonia-Detection/static/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 app = Flask(__name__)
@@ -55,7 +55,7 @@ def result():
              # Save the file to ./uploads
             basepath = os.path.dirname(__file__)
             file_path = os.path.join(
-            basepath, 'F:\\Pneumonia-Detection\\static\\uploads', secure_filename(f.filename))
+            basepath, 'F:/Pneumonia-Detection/static/uploads', secure_filename(f.filename))
             #file_path = secure_filename(f.filename)
             f.save(file_path)
         # Make prediction
