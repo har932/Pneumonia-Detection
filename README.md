@@ -20,3 +20,4 @@ CNN : It stands for Convolutional Neural Network. It is a Deep Learning algorith
 
 VGG 16 : It has 16 convoltional layers. It is an easy and broadly used Convolutional Neural Network (CNN) Architecture used for ImageNet which is a huge visible database mission utilized in visual object recognition software research.
 
+VGG 19 : It has 19 convoltional layers. It is an easy and broadly used Convolutional Neural Network (CNN) Architecture used for ImageNet which is a huge visible database mission utilized in visual object recognition software research. This means that VGG19 has three more convolutional layers than VGG16.
