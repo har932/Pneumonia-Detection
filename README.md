@@ -29,5 +29,5 @@ ResNet50 : It is a convolutional neural network that is 50 layers deep. You can 
 After training the images on these four models we got the accuracy as CNN - 91%, VGG 16 - 96.8%, VGG19 - 96.2%, ReNet50 - 89% . So we choose the best model as VGG16 as it is having the best accuracy.
 
 # UI Screenshots
-image.png
+
 
