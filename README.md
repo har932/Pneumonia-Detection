@@ -1,6 +1,5 @@
 # Pneumonia Detetion
 
-Pneumonia
 Pneumonia is an inflammatory condition of the lung primarily affecting the small air sacs known as alveoli.
 Symptoms typically include some combination of productive or dry cough, chest pain, fever, and difficulty breathing.
 The severity of the condition is variable.
