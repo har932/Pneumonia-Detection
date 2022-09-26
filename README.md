@@ -18,3 +18,5 @@ Tools and Technologies
 
 CNN : It stands for Convolutional Neural Network. It is a Deep Learning algorithm which can take in an input    image, assign importance (learnable weights and biases) to various aspects/objects in the image and be able to differentiate one from the other.
 
+VGG 16 : It has 16 convoltional layers. It is an easy and broadly used Convolutional Neural Network (CNN) Architecture used for ImageNet which is a huge visible database mission utilized in visual object recognition software research.
+
