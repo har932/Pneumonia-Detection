@@ -15,5 +15,6 @@ Architecture
 ```
 
 Tools and Technologies
+
 CNN : It stands for Convolutional Neural Network. It is a Deep Learning algorithm which can take in an input    image, assign importance (learnable weights and biases) to various aspects/objects in the image and be able to differentiate one from the other.
 
