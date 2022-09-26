@@ -21,3 +21,10 @@ CNN : It stands for Convolutional Neural Network. It is a Deep Learning algorith
 VGG 16 : It has 16 convoltional layers. It is an easy and broadly used Convolutional Neural Network (CNN) Architecture used for ImageNet which is a huge visible database mission utilized in visual object recognition software research.
 
 VGG 19 : It has 19 convoltional layers. It is an easy and broadly used Convolutional Neural Network (CNN) Architecture used for ImageNet which is a huge visible database mission utilized in visual object recognition software research. This means that VGG19 has three more convolutional layers than VGG16.
+
+ResNet50 : It is a convolutional neural network that is 50 layers deep. You can load a pretrained version of the network trained on more than a million images from the ImageNet database [1]. The pretrained network can classify images into 1000 object categories, such as keyboard, mouse, pencil, and many animals. As a result, the network has learned rich feature representations for a wide range of images. The network has an image input size of 224-by-224.
+
+Best Model
+
+After training the images on these four models we got the accuracy as CNN - 91%, VGG 16 - 96.8%, VGG19 - 96.2%, ReNet50 - 89% . So we choose the best model as VGG16 as it is having the best accuracy.
+
