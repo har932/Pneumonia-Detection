@@ -10,6 +10,7 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 from werkzeug.utils import secure_filename
+import os
 
 MODEL_PATH = './VGG16_model.h5'
 
