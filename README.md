@@ -8,3 +8,12 @@ microorganisms.
 Identifying the responsible pathogen can be difficult. Diagnosis is often based on symptoms and physical examination.
 Chest X-rays, blood tests, and culture of the sputum may help confirm the diagnosis.The disease may be classified by where it was acquired, such as community- or hospital-acquired or healthcare-associated pneumonia.
 Risk factors for pneumonia include cystic fibrosis, chronic obstructive pulmonary disease (COPD), sickle cell disease, asthma, diabetes, heart failure, a history of smoking, a poor ability to cough (such as following a stroke), and a weak immune system.
+
+Architecture 
+```
+
+```
+
+Tools and Technologies
+CNN : It stands for Convolutional Neural Network. It is a Deep Learning algorithm which can take in an input    image, assign importance (learnable weights and biases) to various aspects/objects in the image and be able to differentiate one from the other.
+
