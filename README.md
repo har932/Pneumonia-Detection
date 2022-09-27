@@ -30,3 +30,8 @@ After training the images on these four models we got the accuracy as CNN - 91%,
 
 # UI Screenshots
 ![f1](https://user-images.githubusercontent.com/69579209/192623283-cad3756e-f5f0-472a-9a5a-e173bcd5d57c.png)
+![f2](https://user-images.githubusercontent.com/69579209/192624285-2b5bfbda-ce67-47f2-8adc-92e6c9770051.png)
+![f3](https://user-images.githubusercontent.com/69579209/192624394-7852528a-bcf2-43d2-a82e-5097490123cf.png)
+![f4](https://user-images.githubusercontent.com/69579209/192624456-bd1412d4-2849-4dd3-8fce-919f1b63a616.png)
+![f6](https://user-images.githubusercontent.com/69579209/192624512-cd86ef48-2180-4bf1-a0bb-42cc3762311b.png)
+![f5](https://user-images.githubusercontent.com/69579209/192624542-23c20551-e419-4bb7-b611-12a5b412956c.png)
