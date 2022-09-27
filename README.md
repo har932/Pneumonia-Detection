@@ -10,9 +10,7 @@ Chest X-rays, blood tests, and culture of the sputum may help confirm the diagno
 Risk factors for pneumonia include cystic fibrosis, chronic obstructive pulmonary disease (COPD), sickle cell disease, asthma, diabetes, heart failure, a history of smoking, a poor ability to cough (such as following a stroke), and a weak immune system.
 
 # Architecture 
-```
-
-```
+<img width="611" alt="VGG16-CNN-Architecture" src="https://user-images.githubusercontent.com/69579209/192625386-e2c46139-1082-477e-a697-072e174ce99d.png">
 
 # Tools and Technologies
 
