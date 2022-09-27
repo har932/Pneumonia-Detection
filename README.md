@@ -30,4 +30,4 @@ After training the images on these four models we got the accuracy as CNN - 91%,
 
 # UI Screenshots
 
-
+![](https://file%2B.vscode-resource.vscode-cdn.net/f%3A/Pneumonia-Detection/f1.png?version%3D1664307460065)
