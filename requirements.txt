@@ -6,3 +6,4 @@ flask
 Werkzeug
 gunicorn
 gevent
+h5py
